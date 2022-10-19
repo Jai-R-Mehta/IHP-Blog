@@ -1,6 +1,7 @@
 module Web.View.Posts.Edit where
 import Web.View.Prelude
 
+
 data EditView = EditView { post :: Post }
 
 instance View EditView where
@@ -18,7 +19,8 @@ instance View EditView where
 renderForm :: Post -> Html
 renderForm post = formFor post [hsx|
     {(textField #title)}
-    {(textareaField #body)}
+    {(textareaField #body) {helpText = "You can use Markdown"}}
     {submitButton}
 
 |]
+
